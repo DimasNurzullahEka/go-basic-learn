@@ -1,8 +1,8 @@
 package entities
 
 type Karyawan struct {
-	ID            int64  `json:"id"`
-	Nama_karyawan string `json:"nama_karyawan"`
-	Jenis_kelamin string `json:"jenis_kelamin"`
-	Alamat        string `json:"alamat"`
+	ID            int64
+	Nama_karyawan string
+	Jenis_kelamin string
+	Alamat        string
 }
