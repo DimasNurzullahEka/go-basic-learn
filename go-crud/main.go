@@ -17,5 +17,6 @@ func main() {
 	}
 
 	http.HandleFunc("/", karyawancontroller.Index)
+	http.HandleFunc("/karyawan/get-form", karyawancontroller.GetForm)
 	log.Fatal(http.listenAndServe(":8080", nil))
 }

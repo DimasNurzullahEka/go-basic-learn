@@ -7,18 +7,19 @@ import (
 	"github.com/jeypc/go-crud-modal/entities"
 )
 
-type Karyawanmodels struct {
+type KaryawanModel struct {
 	db *sql.DB
 }
 
-func New() *Karyawanmodels {
+func New() *KaryawanModel {
 	db, err := config.DBConnection()
 	if err != nil {
 		panic(err)
 	}
-	return &Karyawanmodels{db: db}
+	return &KaryawanModel{db: db}
 }
-func (m *Karyawanmodels) FindAll(karyawan *[]entities.Karyawan) error {
+
+func (m *KaryawanModel) FindAll(karyawan *[]entities.Karyawan) error {
 	rows, err := m.db.Query("select * from karyawan")
 	if err != nil {
 		return err

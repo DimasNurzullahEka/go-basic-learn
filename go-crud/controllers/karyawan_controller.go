@@ -10,16 +10,14 @@ import (
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
-	temp, err := template.ParseFiles("views/karyawan/index.html")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-	if err := temp.Execute(w, nil); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
-}
 
+	data := map[string]interface{}{
+		"data": template.HTML(GetDataKaryawan()),
+	}
+
+	temp, _ := template.ParseFiles("views/karyawan/index.html")
+	temp.Execute(w, data)
+}
 func GetDataKaryawan() string {
 	buffer := &bytes.Buffer{}
 
@@ -49,4 +47,15 @@ func GetDataKaryawan() string {
 	}
 
 	return buffer.String()
+}
+func GetForm(w http.ResponseWriter, r *http.Request) {
+	temp, err := template.ParseFiles("views/karyawan/form.html")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	if err := temp.Execute(w, nil); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
 }

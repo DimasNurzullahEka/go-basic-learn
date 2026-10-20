@@ -1,0 +1,14 @@
+{{$nomor := 0}}
+{{range .karyawan}}
+    <tr>
+        {{$nomor = increment $nomor 1}}
+        <td>{{$nomor}}</td>
+        <td>{{.Nama_karyawan}}</td>
+        <td>{{.Jenis_kelamin}}</td>
+        <td>{{.Alamat}}</td>
+        <td>
+            <a class="btn btn-warning">Edit</a>
+            <a  class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+{{end}}
